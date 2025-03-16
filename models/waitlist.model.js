@@ -11,10 +11,6 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      last_name: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
       email_address: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -24,10 +20,6 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: false,
       },
       state: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      city: {
         type: Sequelize.STRING,
         allowNull: false,
       },

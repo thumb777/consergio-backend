@@ -3,7 +3,7 @@ const Waitlist = db.waitlist;
 
 const registerWaitlists = async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email, firstName, lastName, country, state, city } = req.body;
 
     console.log("---------------E_____M--------", email);
 
@@ -20,7 +20,12 @@ const registerWaitlists = async (req, res) => {
 
     // Save the email to the waitlist with created_at
     await Waitlist.create({
+      first_name: firstName,
+      last_name: lastName,
       email_address: email,
+      country: country,
+      state: state,
+      city: city,
       status: true,
       created_at: new Date(), // Provide the current timestamp
       updated_at: new Date()

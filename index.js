@@ -22,15 +22,31 @@ db.sequelize
   });
 
 // Configure CORS
+// Allowed origins for CORS
+const allowedOrigins = [
+  "https://www.conserg.io", // Add your domains here
+  "https://letsgo.events",
+];
+
+// CORS Middleware
 app.use(
   cors({
-    origin: ["https://www.conserg.io/", "https://letsgo.events/"], // Update this to match your frontend URL
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
-    credentials: true,
-    exposedHeaders: ["Access-Control-Allow-Origin"],
+    origin: function (origin, callback) {
+      // Allow requests with no origin (e.g., mobile apps or Postman)
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // Allow credentials (cookies, headers, etc.)
   })
 );
+
+// Handle preflight OPTIONS requests
+app.options("*", cors());
 
 app.use(express.json());
 

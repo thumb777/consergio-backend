@@ -25,7 +25,7 @@ db.sequelize
 // Allowed origins for CORS
 const allowedOrigins = [
   "https://www.conserg.io", // Add your domains here
-  "https://www.letsgo.events/",
+  "https://www.letsgo.events",
 ];
 
 // CORS Middleware

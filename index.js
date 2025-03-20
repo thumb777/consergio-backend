@@ -24,7 +24,7 @@ db.sequelize
 // Configure CORS
 app.use(
   cors({
-    origin: "https://consergio-waitlist.vercel.app", // Update this to match your frontend URL
+    origin: ["https://www.conserg.io/", "https://letsgo.events/"], // Update this to match your frontend URL
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
   })

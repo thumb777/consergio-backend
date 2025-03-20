@@ -27,6 +27,7 @@ app.use(
     origin: ["https://www.conserg.io/", "https://letsgo.events/"], // Update this to match your frontend URL
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
+    credentials: true,
   })
 );
 
